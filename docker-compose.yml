@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  price-bot-manager:
+    build: .
+    image: crzyc/discordpricebot:consolidated
+    container_name: price-bot-manager
+    user: "1000:1000"
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /mnt/tank/appdata/discordpricebot/config/config.json:/app/config.json:ro
+    restart: unless-stopped
+    init: true
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
