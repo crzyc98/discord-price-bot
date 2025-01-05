@@ -21,3 +21,7 @@ Thumbs.db
 
 # Docker
 *.log
+
+# Sensitive data
+config.json
+discordpricebot.xlsx
